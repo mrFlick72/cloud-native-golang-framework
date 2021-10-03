@@ -1,5 +1,7 @@
 package web
 
+import "github.com/go-resty/resty/v2"
+
 type Response struct {
 	Body   string
 	Status int
