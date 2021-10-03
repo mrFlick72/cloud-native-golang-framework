@@ -22,7 +22,7 @@ func newWebServer() *iris.Application {
 	return app
 }
 
-func NewApplicationServer(wg *sync.WaitGroup) {
+func NewApplicationServer() *iris.Application {
 	app := newWebServer()
 
 	if "true" == manager.GetConfigFor("security.oauth2.enabled") {
@@ -32,9 +32,10 @@ func NewApplicationServer(wg *sync.WaitGroup) {
 		}, manager.GetConfigFor("security.allowed-authority"))
 	}
 
-	//repository := ConfigureAccountRepository()
-	//updater := ConfigureAccountUpdater(repository)
-	//ConfigureAccountEndpoints(repository, updater, app)
+	return app
+}
+
+func StartApplicationServer(wg *sync.WaitGroup, app *iris.Application) {
 	app.Listen(fmt.Sprintf(":%v", manager.GetConfigFor("server.port")))
 	wg.Done()
 }
