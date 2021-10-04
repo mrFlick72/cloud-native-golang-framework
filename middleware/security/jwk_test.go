@@ -1,9 +1,9 @@
 package security
 
 import (
+	"github.com/mrflick72/cloud-native-golang-framework/web"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
-	"github/mrflick72/cloud-native-golang-framework/web"
 	"testing"
 )
 

@@ -5,10 +5,10 @@ import (
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/middleware/logger"
 	"github.com/kataras/iris/v12/middleware/recover"
-	"github/mrflick72/cloud-native-golang-framework/configuration"
-	"github/mrflick72/cloud-native-golang-framework/health"
-	"github/mrflick72/cloud-native-golang-framework/middleware/security"
-	"github/mrflick72/cloud-native-golang-framework/web"
+	"github.com/mrflick72/cloud-native-golang-framework/configuration"
+	"github.com/mrflick72/cloud-native-golang-framework/health"
+	"github.com/mrflick72/cloud-native-golang-framework/middleware/security"
+	"github.com/mrflick72/cloud-native-golang-framework/web"
 	"sync"
 )
 

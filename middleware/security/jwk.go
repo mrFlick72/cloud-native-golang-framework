@@ -4,7 +4,7 @@ import (
 	"context"
 	"crypto/rsa"
 	"errors"
-	"github/mrflick72/cloud-native-golang-framework/web"
+	"github.com/mrflick72/cloud-native-golang-framework/web"
 	"log"
 
 	"github.com/lestrrat-go/jwx/jwk"
