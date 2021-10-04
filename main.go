@@ -1,4 +1,4 @@
-package cloud_native_golang_framework
+package application
 
 import (
 	"fmt"
