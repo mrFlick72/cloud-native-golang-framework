@@ -1,4 +1,4 @@
-module github/mrflick72/cloud-native-golang-framework
+module github.com/mrflick72/cloud-native-golang-framework
 
 go 1.16
 
