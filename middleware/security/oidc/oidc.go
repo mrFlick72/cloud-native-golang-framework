@@ -125,7 +125,7 @@ func oidcCallbackHandlerFactory(oauth2Config *oauth2.Config, verifier *oidc.IDTo
 		claims := claimsFor(idToken)
 
 		session.Set("oidcUser", OidcUser{
-			UserName:     claims["preferred_username"],
+			UserName:     claims["user_name"],
 			AccessToken:  oauth2Token.AccessToken,
 			RefreshToken: oauth2Token.RefreshToken,
 			IdToken:      rawIDToken,
