@@ -2,9 +2,11 @@ package application
 
 import (
 	"fmt"
+	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/middleware/logger"
 	"github.com/kataras/iris/v12/middleware/recover"
 	"github.com/mrflick72/cloud-native-golang-framework/configuration"
+	heath "github.com/mrflick72/cloud-native-golang-framework/health"
 	"github.com/mrflick72/cloud-native-golang-framework/middleware/security"
 	"github.com/mrflick72/cloud-native-golang-framework/web"
 	"sync"
