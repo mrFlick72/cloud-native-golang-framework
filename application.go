@@ -5,15 +5,11 @@ import (
 	"github.com/kataras/iris/v12"
 	"github.com/kataras/iris/v12/middleware/logger"
 	"github.com/kataras/iris/v12/middleware/recover"
-	"github.com/kataras/iris/v12/sessions"
 	"github.com/mrflick72/cloud-native-golang-framework/configuration"
-	"github.com/mrflick72/cloud-native-golang-framework/health"
+	heath "github.com/mrflick72/cloud-native-golang-framework/health"
 	"github.com/mrflick72/cloud-native-golang-framework/middleware/security"
-	"github.com/mrflick72/cloud-native-golang-framework/middleware/security/oidc"
 	"github.com/mrflick72/cloud-native-golang-framework/web"
-	"os"
 	"sync"
-	"time"
 )
 
 var manager = configuration.GetConfigurationManagerInstance()
@@ -34,18 +30,6 @@ func NewApplicationServer() *iris.Application {
 			Url:    manager.GetConfigFor("security.jwk-uri"),
 			Client: web.New(),
 		}, manager.GetConfigFor("security.allowed-authority"))
-	}
-
-	if "true" == manager.GetConfigFor("security.oidc.enabled") {
-		sessionLifeTime, _ := time.ParseDuration(os.Getenv("SESSION_LIFE_TIME"))
-		sess := sessions.New(sessions.Config{
-			Cookie:       "go_session_id",
-			AllowReclaim: true,
-			Expires:      sessionLifeTime,
-		})
-
-		app.Use(sess.Handler())
-		oidc.SetUpOIDC(app)
 	}
 
 	return app
